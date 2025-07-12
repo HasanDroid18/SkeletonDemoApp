@@ -3,7 +3,9 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import SplashScreen from './src/screens/SplashScreen';
-import WelcomeScreen from './src/screens/WelcomeScreen';
+import OnboardingNavigator from './src/navigation/OnboardingNavigator';
+import MainScreen from './src/screens/MainScreen';
+import VoicebotScreen from './src/screens/VoicebotScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -16,12 +18,28 @@ const App = () => {
           component={SplashScreen}
           options={{ headerShown: false }}
         />
-
         <Stack.Screen
-          name="Welcome"
-          component={WelcomeScreen}
+          name="Onboarding"
+          component={OnboardingNavigator}
           options={{ headerShown: false }}
         />
+        <Stack.Screen
+          name="Main"
+          component={MainScreen}
+          options={{ headerShown: false,
+            presentation: 'transparentModal',
+              animation: 'slide_from_bottom',
+           }}
+        />
+        <Stack.Screen
+          name="Voicebot"
+          component={VoicebotScreen}
+          options={{ headerShown: false,
+            presentation: 'modal',
+            animation: 'slide_from_bottom',
+           }}
+        />
+        
       </Stack.Navigator>
     </NavigationContainer>
   );
