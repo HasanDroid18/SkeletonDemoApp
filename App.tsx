@@ -6,6 +6,7 @@ import SplashScreen from './src/screens/SplashScreen';
 import OnboardingNavigator from './src/navigation/OnboardingNavigator';
 import MainScreen from './src/screens/MainScreen';
 import VoicebotScreen from './src/screens/VoicebotScreen';
+import SettingsNavigation from './src/navigation/SettingsNavigation';
 
 const Stack = createNativeStackNavigator();
 
@@ -26,20 +27,30 @@ const App = () => {
         <Stack.Screen
           name="Main"
           component={MainScreen}
-          options={{ headerShown: false,
+          options={{
+            headerShown: false,
             presentation: 'transparentModal',
-              animation: 'slide_from_bottom',
-           }}
+            animation: 'slide_from_bottom',
+          }}
         />
         <Stack.Screen
           name="Voicebot"
           component={VoicebotScreen}
-          options={{ headerShown: false,
+          options={{
+            headerShown: false,
             presentation: 'modal',
             animation: 'slide_from_bottom',
-           }}
+          }}
         />
-        
+        <Stack.Screen
+          name="SettingStack"
+          component={SettingsNavigation}
+          options={{
+            headerShown: false,
+            presentation: 'modal',
+            animation: 'slide_from_bottom',
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

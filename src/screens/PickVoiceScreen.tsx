@@ -12,7 +12,7 @@ const PickVoiceScreen = () => {
   };
   return (
     <View className="flex-1 items-center justify-center bg-white">
-      <Container screenTitle="Pick Your Voice" />
+      <Container screenTitle="Pick Voice" />
       <TouchableOpacity
         onPress={dismissBtn}
         className="bg-red-500 mt-4 rounded-xl px-6 py-4"

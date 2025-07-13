@@ -1,4 +1,4 @@
-import { View, TouchableOpacity, Text, } from 'react-native';
+import { View, TouchableOpacity, Text, Image } from 'react-native';
 import React from 'react';
 import Container from '../components/Container';
 import { useNavigation } from '@react-navigation/native';
@@ -10,10 +10,21 @@ const MainScreen = () => {
     //@ts-ignore
     navigation.navigate('Voicebot');
   };
+  const settingsBtn = () => {
+    //@ts-ignore
+    navigation.navigate('SettingStack');
+  };
 
   return (
     <View className="flex-1 bg-white">
-      
+      <View className="pt-7 px-6 items-start">
+        <TouchableOpacity onPress={settingsBtn}>
+          <Image
+            source={require('../assets/images/settings.png')}
+            className="w-10 h-10"
+          />
+        </TouchableOpacity>
+      </View>
 
       <View className="flex-1 items-center justify-center">
         <Container screenTitle="Main Screen" />
