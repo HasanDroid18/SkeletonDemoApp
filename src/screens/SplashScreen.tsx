@@ -1,14 +1,28 @@
 import { View, Image } from 'react-native';
 import React, { useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
+import { Linking } from 'react-native';
 
 const SplashScreen = () => {
   const navigation = useNavigation();
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      //@ts-ignore
-      navigation.navigate('Onboarding'); 
+    const timer = setTimeout(async () => {
+      const url = await Linking.getInitialURL();
+
+      if (url?.includes('set-company-id')) {
+        navigation.reset({
+          index: 0,
+          //@ts-ignore
+          routes: [{ name: 'SetCompanyID' }],
+        });
+      } else {
+        navigation.reset({
+          index: 0,
+          //@ts-ignore
+          routes: [{ name: 'Onboarding' }],
+        });
+      }
     }, 3000);
 
     return () => clearTimeout(timer);

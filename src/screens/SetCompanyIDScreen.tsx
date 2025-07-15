@@ -8,7 +8,9 @@ const SetCompanyIDScreen = () => {
 
     const navigateToEnterCompanyID = () => {
         //@ts-ignore
-        navigation.navigate('EnterCompanyID');
+        navigation.navigate('SettingStack', {screen: 'EnterCompanyID',
+});
+
     };
   return (
     <View className="flex-1 items-center justify-center bg-white">

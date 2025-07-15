@@ -7,12 +7,19 @@ import OnboardingNavigator from './src/navigation/OnboardingNavigator';
 import MainScreen from './src/screens/MainScreen';
 import VoicebotScreen from './src/screens/VoicebotScreen';
 import SettingsNavigation from './src/navigation/SettingsNavigation';
+import SetCompanyIDScreen from './src/screens/SetCompanyIDScreen';
 
 const Stack = createNativeStackNavigator();
 
+const config = {
+  screens: {
+    SetCompanyIDScreen: 'set-company-id',
+  },
+};
+
 const App = () => {
   return (
-    <NavigationContainer>
+    <NavigationContainer linking={{ prefixes: ['myapp://app'], config }}>
       <Stack.Navigator>
         <Stack.Screen
           name="Splash"
@@ -49,6 +56,13 @@ const App = () => {
             headerShown: false,
             presentation: 'modal',
             animation: 'slide_from_bottom',
+          }}
+        />
+        <Stack.Screen
+          name="SetCompanyID"
+          component={SetCompanyIDScreen}
+          options={{
+            headerShown: false,
           }}
         />
       </Stack.Navigator>
