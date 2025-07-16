@@ -13,22 +13,18 @@ const SettingsNavigation = () => {
       <Stack.Screen
         name="Settings"
         component={SettingsScreen}
-        options={{ headerTitle: 'Back'}}
       />
       <Stack.Screen
         name="PickVoice"
         component={PickVoiceScreen}
-        options={{ headerShown: false }}
       />
       <Stack.Screen
         name="SetCompanyID"
         component={SetCompanyIDScreen}
-        options={{ headerShown: false }}
       />
       <Stack.Screen
         name="EnterCompanyID"
         component={EnterCompanyIDScreen}
-        options={{ headerShown: false }}
       />
     </Stack.Navigator>
   );

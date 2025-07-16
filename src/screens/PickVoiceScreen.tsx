@@ -1,14 +1,24 @@
 import { View, Text, TouchableOpacity } from 'react-native';
 import React from 'react';
 import Container from '../components/Container';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useNavigationState } from '@react-navigation/native';
 
 const PickVoiceScreen = () => {
   const navigation = useNavigation();
 
+  const routes = useNavigationState(state => state.routes);
+  const isFromSettingsStack = routes.some(route =>
+    ['Settings'].includes(route.name)
+  );
+
+  
   const dismissBtn = () => {
-    //@ts-ignore
-    navigation.navigate('Main');
+    if (isFromSettingsStack) {
+      navigation.goBack(); 
+    } else {
+      //@ts-ignore
+      navigation.navigate('Main');
+    }
   };
   return (
     <View className="flex-1 items-center justify-center bg-white">
